@@ -32,6 +32,7 @@ async function run() {
 
     //job related API
     const jobsCollection = client.db('jobOffer').collection('jobs');
+    const jobApplicationCollection = client.db('jobOffer').collection('job_applications')
 
     app.get('/jobs', async(req, res)=>{
         const cursor = jobsCollection.find();
@@ -46,6 +47,12 @@ async function run() {
         res.send(result);
     })
 
+    //job application API's
+    app.post('/job-application', async(req, res)=>{
+        const application = req.body;
+        const result = await jobApplicationCollection.insertOne(application);
+        res.send(result);
+    })
 
   } finally {
     // Ensures that the client will close when you finish/error
