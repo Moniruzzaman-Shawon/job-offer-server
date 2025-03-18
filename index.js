@@ -64,6 +64,11 @@ async function run() {
             if(job){
                 application.title = job.title;
                 application.company = job.company;
+                application.category = job.category;
+                application.company_logo = job.company_logo;
+                application.location = job.location;
+                application.salaryRange = job.salaryRange;
+                application.applicationDeadline = job.applicationDeadline;
             }
         }
             
